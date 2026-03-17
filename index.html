@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0a0a14" />
+    <meta name="description" content="Neon Gravity Shift — thrust-based arcade survival game." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta property="og:title" content="Null Gravity" />
+    <meta property="og:description" content="Tap to thrust. Dodge the columns. How far can you go?" />
+    <title>Null Gravity</title>
+    <link rel="stylesheet" href="styles.css">
+    
+
+</head>
+
+<body>
+    <!-- Animated starfield background -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+
+    <div id="game-wrapper" role="main" aria-label="Null Gravity game">
+
+
+        <!-- HUD -->
+        <div id="hud" role="status" aria-live="polite">
+            <div class="hud-block">
+                <span class="hud-label">Score</span>
+                <span class="hud-value" id="hud-score-val" aria-label="Score">0</span>
+            </div>
+
+
+            <div id="hud-center">
+                <span id="game-title">Null Gravity</span>
+                <div id="hud-btns">
+                    <button class="icon-btn active" id="btn-sound" aria-label="Toggle sound"
+                        title="Sound (M)">♪</button>
+                    <button class="icon-btn" id="btn-pause" aria-label="Pause" title="Pause (P)">⏸</button>
+                    <button class="icon-btn" id="btn-help" aria-label="How to play" title="Help">?</button>
+                </div>
+            </div>
+
+
+            <div class="hud-block" style="align-items:flex-end">
+                <span class="hud-label">Best</span>
+                <span class="hud-value" id="hud-best-val" aria-label="Best score">0</span>
+            </div>
+        </div>
+
+
+        <!-- Game canvas — internal resolution 800×600, CSS-scaled -->
+        <canvas id="gameCanvas" width="800" height="600" role="button" aria-label="Tap or press SPACE to thrust upward"
+            tabindex="0"></canvas>
+
+
+        <!-- Footer -->
+        <div id="footer-bar">
+            <span id="difficulty-text">DIFFICULTY: 1.0×</span>
+            <span id="combo-display" aria-live="polite"></span>
+        </div>
+
+
+        <!-- Overlay (start / pause / game over) -->
+        <div id="overlay" role="dialog" aria-modal="true">
+            <div class="overlay-card" id="overlay-card"></div>
+        </div>
+
+
+        <!-- Screen-flash effect -->
+        <div id="flash" aria-hidden="true"></div>
+    </div>
+
+
+    <!-- Toast notification -->
+    <div id="toast" role="alert" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
